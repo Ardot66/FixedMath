@@ -4,6 +4,7 @@ TEMP = $(CURDIR)/Temp
 BIN = $(CURDIR)/Bin
 SOURCE = Source
 TESTS = Tests
+LIB = Libraries
 
 NAME = FixedMath
 TESTS_NAME = Tests
@@ -11,7 +12,7 @@ TESTS_NAME = Tests
 DLL := $(BIN)/lib$(NAME).dll
 TESTS_EXE := $(BIN)/$(TESTS_NAME).exe
 
-LOCAL_HEADERS := $(abspath $(wildcard */*.h))
+LOCAL_HEADERS := $(abspath $(wildcard */*.h $(LIB)/*/*/*.h))
 LOCAL_INCLUDE := $(dir $(addprefix -I,$(LOCAL_HEADERS)))
 
 All: $(DLL) $(TESTS_EXE)
